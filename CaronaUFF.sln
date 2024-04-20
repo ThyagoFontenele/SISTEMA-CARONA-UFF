@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaronaUFF.Api", "CaronaUFF.Api\CaronaUFF.Api.csproj", "{8843FCFB-D1C2-4EA4-9E84-10B08B82F96C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2892D714-60BB-4FBD-9AEE-93750127B020}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFolder", "SolutionFolder", "{51BFF4A3-37BE-4F84-BF37-7AC8694A566D}"
+	ProjectSection(SolutionItems) = preProject
+		db-scripts\01-create-db-and-tables.sql = db-scripts\01-create-db-and-tables.sql
+		db-scripts\02-initial-data.sql = db-scripts\02-initial-data.sql
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8843FCFB-D1C2-4EA4-9E84-10B08B82F96C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8843FCFB-D1C2-4EA4-9E84-10B08B82F96C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8843FCFB-D1C2-4EA4-9E84-10B08B82F96C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8843FCFB-D1C2-4EA4-9E84-10B08B82F96C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{51BFF4A3-37BE-4F84-BF37-7AC8694A566D} = {2892D714-60BB-4FBD-9AEE-93750127B020}
+	EndGlobalSection
+EndGlobal

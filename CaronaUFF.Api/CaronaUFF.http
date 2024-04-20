@@ -1,0 +1,6 @@
+@CaronaUFF_HostAddress = http://localhost:5125
+
+GET {{CaronaUFF_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
