@@ -41,6 +41,15 @@
         <div class="d-flex m-5 bd-highlight">
             <h2 class="p-3 text-center">Reputação</h2>
         </div>
+        <div class="d-flex m-5 bd-highlight">
+            <form class="p-2 m-5">
+                <div class="form-group">
+                <!--<label for="formControlRange">label range</label>-->
+                <p><b>1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5</b></p>
+                <input type="range" class="form-control-range" id="formControlRange" disabled>
+                </div>
+            </form>
+        </div>
         <div class="justify-content-center">
             <div class="d-flex m-5 bd-highlight">
                 <h2 class="p-3 text-center">Dados</h2>
@@ -135,6 +144,71 @@
         <div class="d-flex m-5 bd-highlight">
             <h2 class="p-3 text-center">Veículos</h2>
         </div>
+        <form class="p-2 m-5">
+            <div>
+                <div class="row">
+                    <div class="form-group col-md-2">
+                        <label for="modelocarro">Modelo</label>
+                        <input type="text" class="form-control" id="modelocarro" name="modelocarro" value="Siena"
+                            disabled>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="marcacarro">Marca</label>
+                        <input type="text" class="form-control" id="marcacarro" name="marcacarro" value="Fiat" disabled>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="anocarro">Ano</label>
+                        <input type="text" class="form-control" id="anocarro" name="anocarro" value="2019" disabled>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="placacarro">Placa</label>
+                        <input type="text" class="form-control" id="placacarro" name="placacarro" value="APP2024" disabled>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="estadocarro">UF</label>
+                        <select id="estadocarro" name="estadocarro" class="form-control" disabled>
+                            <option selected>Escolher...</option>
+                            <option>AC</option>
+                            <option>AM</option>
+                            <option>RR</option>
+                            <option>PA</option>
+                            <option>RO</option>
+                            <option>AP</option>
+                            <option>TO</option>
+                            <option>MA</option>
+                            <option>PI</option>
+                            <option>CE</option>
+                            <option>RN</option>
+                            <option>PB</option>
+                            <option>PE</option>
+                            <option>AL</option>
+                            <option>SE</option>
+                            <option>BA</option>
+                            <option>MG</option>
+                            <option>ES</option>
+                            <option>RJ</option>
+                            <option>SP</option>
+                            <option>PR</option>
+                            <option>SC</option>
+                            <option>RS</option>
+                            <option>MS</option>
+                            <option>MT</option>
+                            <option>GO</option>
+                            <option>DF</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="forCidade">Cidade</label>
+                        <input type="text" class="form-control" id="cidade" name="cidade" value="Rio de Janeiro"
+                            disabled>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Editar</button>
+        </form>
+        <form class="p-2 m-5">
+            <button type="submit" class="btn btn-primary">Adicionar Veículo</button>
+        </form>
     </main>
 
     <footer class="text-center text-lg-start bg-body-tertiary" style="background-color: #016086;">
