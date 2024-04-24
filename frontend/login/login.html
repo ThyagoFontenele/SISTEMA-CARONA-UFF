@@ -15,12 +15,12 @@
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
                         <a href="home.html">
-                            <img src="src/logo.png" height="70"/>
+                            <img src="../src/logo.png" height="70"/>
                         </a>
                     </li>
                 </ul>
                 <span class="navbar-text">
-                    <a class="navbar-brand" href="cadastro.html"><font color="white">Cadastro</font></a>
+                    <a class="navbar-brand" href="../register/register.html"><font color="white">Cadastro</font></a>
                 </span>
                 <span class="navbar-text">
                     <a class="navbar-brand" href="login.html"><font color="white">Login</font></a>
@@ -33,19 +33,22 @@
         <div class="conteiner-fluid p-5">
             <div class="row">
                 <div class="col-sm">
-                    <img src="src/logo-color.png" class="img-fluid" alt="Responsive image">
+                    <img src="../src/drive.jpg" class="img-fluid" alt="Responsive image">
                 </div>
                 <div class="col-sm">
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <h1>Bem-vindo ao Aplicativo de Caronas UFF</h1>
-                    <p>O APP de Caronas UFF foi feito para descomplicar a vida dos estudantes da UFF <br> na ida para a Universidade ou volta para casa.</p>
-                    <p>Este APP foi criado com a única finalidade de  avalição parcial para a disciplina <br> de Gerencia de Projetos e Manutenção de Softaware, no período de 2024.1.</p>
+                    <form class="p-2 m-5">
+                        <div class="mb-3">
+                            <h1 class="p-3 text-center">Login</h1>
+                            <label for="exampleInputEmail1" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">Nós nunca compartilharemos seu e-mail com terceiros.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Senha</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </form>
                 </div>
             </div>
         </div>
