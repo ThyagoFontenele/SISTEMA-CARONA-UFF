@@ -13,6 +13,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFolder", "SolutionF
 		db-scripts\02-initial-data.sql = db-scripts\02-initial-data.sql
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaronaUFF.Domain", "CaronaUFF.Domain\CaronaUFF.Domain.csproj", "{1E59D0C1-0426-428B-ABC9-9DEE22F6BB37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaronaUFF.Infrastructure", "CaronaUFF.Infrastructure\CaronaUFF.Infrastructure.csproj", "{39765CB4-AB44-415C-862C-FDAD395EAF93}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +27,14 @@ Global
 		{8843FCFB-D1C2-4EA4-9E84-10B08B82F96C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8843FCFB-D1C2-4EA4-9E84-10B08B82F96C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8843FCFB-D1C2-4EA4-9E84-10B08B82F96C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E59D0C1-0426-428B-ABC9-9DEE22F6BB37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E59D0C1-0426-428B-ABC9-9DEE22F6BB37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E59D0C1-0426-428B-ABC9-9DEE22F6BB37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E59D0C1-0426-428B-ABC9-9DEE22F6BB37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39765CB4-AB44-415C-862C-FDAD395EAF93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39765CB4-AB44-415C-862C-FDAD395EAF93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39765CB4-AB44-415C-862C-FDAD395EAF93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39765CB4-AB44-415C-862C-FDAD395EAF93}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{51BFF4A3-37BE-4F84-BF37-7AC8694A566D} = {2892D714-60BB-4FBD-9AEE-93750127B020}
