@@ -1,8 +1,17 @@
 ﻿services:
-  db:
+  caronauff.api:
+    image: caronauff.api
+    build:
+      context: .
+      dockerfile: CaronaUFF.Api/Dockerfile
+    environment:
+      ASPNETCORE_URLS: "http://+:5125"
+    ports:
+      - "5125:5125"
+  carona_db:
     image: mcr.microsoft.com/mssql/server:2022-latest
     container_name: carona_db
-    environment:  
+    environment:
       MSSQL_SA_PASSWORD: "Carona2024!"
       ACCEPT_EULA: "Y"
     ports:
@@ -10,7 +19,7 @@
   mssqltools:
     image: mcr.microsoft.com/mssql-tools
     depends_on:
-      - db
+      - carona_db
     volumes:
       - ./db-scripts/01-create-db-and-tables.sql:/tmp/01-create-db-and-tables.sql
       - ./db-scripts/02-initial-data.sql:/tmp/02-initial-data.sql
