@@ -24,13 +24,12 @@
 <h3> INSTRUÇÕES PARA DESENVOLVEDORES BACKEND:</h3>
 <p>Requisitos: DOCKER e .NET SDK 8.0</p>
 <ol>
-    <li>Comente a parte do serviço caronauff.api do docker-comopose.yml
-    <li>Abra um TERMINAL estando com o caminho no diretório do projeto
-    <li>RODE O COMANDO "docker-compose up"
-    <li>AGUARDE aparecer esta mensagem no log: "(1 rows affected)"
-    <li>Dentro do CaronaUFF.Api altere o arquivo appsettings.Development.json, de "Server=carona_db" para "Server=localhost"
-    <li>Abra um TERMINAL no diretório com o caminho no CaronaUFF.Api
-    <li>Execute o comando "dotnet build" e depois "dotnet run" para executar a API
-    <li>Toda vez que alterar o projeto cancelar a execução da API e rode denovo
-    <li>voce pode debugar dentro da IDE
+    <li>Comente a parte do serviço caronauff.api do docker-comopose.yml</li>
+    <li>Abra um TERMINAL estando com o caminho no diretório do projeto</li>
+    <li>RODE O COMANDO "docker-compose up"</li>
+    <li>AGUARDE aparecer esta mensagem no log: "(1 rows affected)"</li>
+    <li>Dentro do CaronaUFF.Api altere o arquivo appsettings.Development.json, de "Server=carona_db" para "Server=localhost"</li>
+    <li>Abra um TERMINAL no diretório com o caminho no CaronaUFF.Api</li>
+    <li>Execute o comando "dotnet build" e depois "dotnet run" para executar a API</li>
+    <li>Toda vez que alterar o projeto cancele a execução da API e rode novamente para aplicar as alterações</li>
 </ol>
