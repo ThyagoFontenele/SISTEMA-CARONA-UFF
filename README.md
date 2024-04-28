@@ -1,7 +1,7 @@
 # SISTEMA-CARONA-UFF
 Trabalho de Gerência de Projetos e Manutenção de Software - UFF
 
-INSTRUÇÕES PARA SUBIR O SERVIDOR COM DOCKER:
+INSTRUÇÕES PARA SUBIR O SERVIDOR COM DOCKER:\n
 Requisitos: DOCKER
     1 - Abra um TERMINAL estando com o caminho no diretório do projeto
     2 - RODE O COMANDO "docker-compose up"
