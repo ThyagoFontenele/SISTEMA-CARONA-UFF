@@ -23,5 +23,4 @@
     <li>Abra um TERMINAL no diretório com o caminho no CaronaUFF.Api</li>
     <li>Execute o comando "dotnet build" e depois "dotnet run" para executar a API</li>
     <li>Depois disso, para consultar a documentação da API acesse: <a href="http://localhost:5125/swagger/index.html">http://localhost:5125/swagger/index.html</a></li>
-    <li>Toda vez que alterar o projeto cancele a execução da API e rode novamente para aplicar as alterações</li>
 </ol>
