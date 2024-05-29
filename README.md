@@ -24,3 +24,15 @@
     <li>Execute o comando "dotnet build" e depois "dotnet run" para executar a API</li>
     <li>Depois disso, para consultar a documentação da API acesse: <a href="http://localhost:5125/swagger/index.html">http://localhost:5125/swagger/index.html</a></li>
 </ol>
+
+<h2>Branches de trabalho</h2>
+<p>Para realizar as alterações no código, utilizamos o padrão do Git Flow para criar branches.</p>
+<ul>
+    <li>Features - feat/nome-feature</li>
+    <li>Release - release/numero-versao(Ex.: 2.2.0.0)</li>
+    <li>Bugfix (correções feitas para integrar em dev ou em branchs de release e entrar no próximo deploy) - bugfix/nome-correcao</li>
+    <li>Hotfix (correções feitas para integrar em main e fazer um deploy de emergência)- hotfix/nome-fix</li>
+</ul>
+
+
+
