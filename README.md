@@ -16,6 +16,7 @@
 <h3> INSTRUÇÕES PARA DESENVOLVEDORES:</h3>
 <p>Requisitos: DOCKER e .NET SDK 8.0</p>
 <ol>
+    <li>Baixe e instale o Docker e o .NET SDK 8.0 no seu computador</li>
     <li>Abra um TERMINAL estando com o caminho no diretório do projeto</li>
     <li>RODE O COMANDO "docker-compose up"</li>
     <li>AGUARDE aparecer esta mensagem no log: "(1 rows affected)"</li>
