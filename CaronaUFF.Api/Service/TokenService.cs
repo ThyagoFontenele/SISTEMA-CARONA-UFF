@@ -16,8 +16,7 @@ public class TokenService
         {
             Subject =  new ClaimsIdentity( new []
             {
-                new Claim("Id", usuario.Id.ToString()),
-                new Claim(ClaimTypes.Email, usuario.Email)
+                new Claim("Id", usuario.Id.ToString())
             }),
             Expires = DateTime.UtcNow.AddDays(7),
             SigningCredentials = new SigningCredentials(
