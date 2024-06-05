@@ -1,5 +1,3 @@
-const userFormTag = "user-form";
-
 class UserForm extends HTMLElement {
     
     user;
@@ -11,7 +9,7 @@ class UserForm extends HTMLElement {
 
         this.attachShadow({ mode: "open" });
 
-        this.editable = this.hasAttribute('edit') ?? this.getAttribute
+        this.editable = this.hasAttribute('edit') ?? this.getAttribute('edit')
 
         let submitButtonText = "Registrar";
 
@@ -182,4 +180,4 @@ class UserForm extends HTMLElement {
     }
 }
 
-customElements.define(userFormTag, UserForm);
+customElements.define("user-form", UserForm);
