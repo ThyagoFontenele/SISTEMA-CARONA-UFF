@@ -1,4 +1,5 @@
 using System.Security.Claims;
+using CaronaUFF.Domain.DTO;
 using CaronaUFF.Domain.Entities;
 using CaronaUFF.Domain.Repositories;
 using CaronaUFF.Domain.Services;
@@ -20,14 +21,14 @@ public class UsuarioController(IUsuarioRepository usuarioRepository) : Controlle
     [Authorize]
     public async Task<IActionResult> GetById(int id)
     {
-        var customer = await usuarioRepository.GetById(id);
+        var usuario = await usuarioRepository.GetById(id);
         
-        if (customer is null)
+        if (usuario is null)
         {
             return NotFound();
         }
         
-        return Ok(customer);
+        return Ok(UsuarioDTO.ToDTO(usuario));
     }
 
     [HttpPost]
@@ -41,6 +42,6 @@ public class UsuarioController(IUsuarioRepository usuarioRepository) : Controlle
             return Conflict(validationResult.Errors);
         }
 
-        return Ok(validationResult.Data);
+        return Ok();
     }
 }

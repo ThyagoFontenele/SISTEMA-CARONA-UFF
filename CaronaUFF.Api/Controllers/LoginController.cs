@@ -33,12 +33,11 @@ public class LoginController(IUsuarioRepository usuarioRepository) : ControllerB
 
         return Ok(new
         {
-            user = new UserDTO
+            user = new UsuarioDTO
             {
                 Id = user.Id,
                 Nome = user.Nome,
-                Email = user.Email,
-                CPF = user.CPF
+                Email = user.Email
             },
             token
         });
