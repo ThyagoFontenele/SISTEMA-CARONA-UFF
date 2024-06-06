@@ -31,6 +31,25 @@ public class UsuarioController(IUsuarioRepository usuarioRepository) : Controlle
         return Ok(UsuarioDTO.ToDTO(usuario));
     }
 
+    [HttpPut]
+    [Authorize]
+    public async Task<IActionResult> Update(Usuario usuario)
+    {
+        if (await usuarioRepository.GetById(usuario.Id) is null)
+        {
+            return NotFound();
+        }
+        
+        var validationResult = await new UsuarioRegistration(usuarioRepository).Register(usuario);
+        
+        if (!validationResult.IsValid)
+        {
+            return Conflict(validationResult.Errors);
+        }
+        
+        return Ok(UsuarioDTO.ToDTO(usuario));
+    }
+    
     [HttpPost]
     [AllowAnonymous]
     public async Task<IActionResult> Post(Usuario usuario)
