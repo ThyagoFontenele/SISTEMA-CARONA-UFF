@@ -1,9 +1,8 @@
 ﻿using CaronaUFF.Domain.Entities;
 using CaronaUFF.Domain.Repositories;
 using CaronaUFF.Domain.Services;
-using CaronaUFF.Infrastructure.Repositories;
+using CaronaUFF.Domain.DTO;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CaronaUFF.Api.Controllers
@@ -27,7 +26,7 @@ namespace CaronaUFF.Api.Controllers
             {
                 return NotFound();
             }
-            return Ok(veiculo);
+            return Ok(VeiculoDTO.ToDTO(veiculo));
         }
 
         [HttpPost]
@@ -41,7 +40,7 @@ namespace CaronaUFF.Api.Controllers
                 return Conflict(validationResult.Errors);
             }
 
-            return Ok(validationResult.Data);
+            return Ok();
         }
     }
 }
