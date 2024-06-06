@@ -8,5 +8,5 @@ public class UsuarioUniqueCpfSpecification(IUsuarioRepository usuarioRepository)
     public string Message => "CPF já cadastrado";
 
     public async Task<bool> IsSatisfiedBy(Usuario usuario) =>
-        await usuarioRepository.GetUser(u => u.CPF == usuario.CPF) is null;
+        await usuarioRepository.GetUser(u => u.Id != usuario.Id && u.CPF == usuario.CPF) is null;
 }
