@@ -35,11 +35,39 @@
         </nav>
     </header>
 
-    <main>
-        <div class="p-2 m-5">
+    <main class="container mt-5">
+        <form class="p-3 border rounded">
             <h1>Ofereça sua carona aqui:</h1>
-            <br>
-        </div>
+            <div class="row mt-4">
+                <div class="form-group col-md-3">
+                    <label for="ofertalocalpartida">Local de Partida</label>
+                    <input type="text" class="form-control" id="ofertalocalpartida" name="ofertalocalpartida">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="ofertalocaldestino">Local de Destino</label>
+                    <input type="text" class="form-control" id="ofertalocaldestino" name="ofertalocaldestino">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="ofertadata">Data</label>
+                    <input type="date" class="form-control" id="ofertadata" name="ofertadata">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="ofertahora">Hora</label>
+                    <input type="time" class="form-control" id="ofertahora" name="ofertahora">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="vagas">Número de Vagas</label>
+                    <input type="number" class="form-control" id="vagas" name="vagas" min="1" max="10">
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="observacoes">Observações</label>
+                    <textarea class="form-control" id="observacoes" name="observacoes" rows="3"></textarea>
+                </div>
+                <div class="form-group col-md-12">
+                    <button type="submit" class="btn btn-primary mt-3">Oferecer Carona</button>
+                </div>
+            </div>
+        </form>
     </main>
 
     <footer class="text-center text-lg-start bg-body-tertiary" style="background-color: #016086;">
