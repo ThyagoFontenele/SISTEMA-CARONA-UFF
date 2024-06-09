@@ -110,8 +110,7 @@ class UserForm extends HTMLElement {
         }
 
         if (this.editable) {
-            baseUrl = `http://localhost:5125/api/Usuario/${this.user.id}` ;
-            method = 'UPDATE';
+            method = 'PUT';
             headers['Authorization'] = `Bearer ${localStorage.getItem('token')}`
         }
 
@@ -123,7 +122,7 @@ class UserForm extends HTMLElement {
             if (res.ok) {
                 alert('Sucesso!');
                 if (method === 'POST') {
-                    window.location.href = '/login/login.html';
+                    window.location.href = '/login/login.html';  
                 }
                 return;
             }
@@ -153,6 +152,7 @@ class UserForm extends HTMLElement {
                     this.user = res
                     this.setFormValues()
                 })
+                return;
             }
             
             if (res.status === 409) {
