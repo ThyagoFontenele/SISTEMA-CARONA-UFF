@@ -10,6 +10,6 @@ namespace CaronaUFF.Domain.Repositories
 {
     public interface IVeiculoRepository : IRepository<Veiculo>
     {
-        Task<Veiculo?> GetUser(Expression<Func<Veiculo, bool>> predicate);
+        Task<Veiculo?> GetVeiculo(Expression<Func<Veiculo, bool>> predicate);
     }
 }

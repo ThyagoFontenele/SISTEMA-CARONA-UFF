@@ -12,12 +12,12 @@ namespace CaronaUFF.Api.Controllers
     public class VeiculoController(IVeiculoRepository veiculoRepository) : ControllerBase
     {
         [HttpGet]
-        [AllowAnonymous]
+        [Authorize]
         public async Task<IList<Veiculo>> Get() =>
     (await veiculoRepository.GetAll()).ToList();
 
         [HttpGet("{id}")]
-        [AllowAnonymous]
+        [Authorize]
         public async Task<IActionResult> GetById(int id)
         {
             var veiculo = await veiculoRepository.GetById(id);
@@ -30,7 +30,7 @@ namespace CaronaUFF.Api.Controllers
         }
 
         [HttpPost]
-        [AllowAnonymous]
+        [Authorize]
         public async Task<IActionResult> Post(Veiculo veiculo)
         {
             var validationResult = await new VeiculoRegistration(veiculoRepository).Register(veiculo);
@@ -41,6 +41,27 @@ namespace CaronaUFF.Api.Controllers
             }
 
             return Ok();
+        }
+
+        [HttpPut]
+        [Authorize]
+        public async Task<IActionResult> Put(Veiculo veiculo)
+        {
+            var veiculoPersisted = await veiculoRepository.GetById(veiculo.Id);
+
+            if (veiculoPersisted is null)
+            {
+                return NotFound();
+            }
+
+            var validationResult = await new VeiculoRegistration(veiculoRepository).Update(veiculo);
+
+            if (!validationResult.IsValid)
+            {
+                return Conflict(validationResult.Errors);
+            }
+
+            return Ok(validationResult.Data);
         }
     }
 }
