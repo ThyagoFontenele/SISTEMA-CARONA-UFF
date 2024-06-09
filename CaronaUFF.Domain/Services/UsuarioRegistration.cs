@@ -14,16 +14,23 @@ public class UsuarioRegistration(IUsuarioRepository usuarioRepository)
         { 
             return validationResult;
         }
+        
+        await usuarioRepository.Save(usuario);
+        
+        return validationResult;
+    }
 
-        if (usuario.Id == default)
+    public async Task<ValidationResult<Usuario>> Update(Usuario usuario)
+    {
+        var validationResult = await new UsuarioRegistrationValidation(usuarioRepository).Validate(usuario);
+
+        if (!validationResult.IsValid)
         {
-            validationResult.Data = usuario;
-            await usuarioRepository.Save(usuario);
             return validationResult;
         }
-        
+
         var usuarioPersisted = await usuarioRepository.GetById(usuario.Id);
-        
+
         usuarioPersisted!.Nome = usuario.Nome;
         usuarioPersisted.Email = usuario.Email;
         usuarioPersisted.CPF = usuario.CPF;
@@ -34,9 +41,10 @@ public class UsuarioRegistration(IUsuarioRepository usuarioRepository)
         usuarioPersisted.Cidade = usuario.Cidade;
         usuarioPersisted.Bairro = usuario.Bairro;
         usuarioPersisted.Endereco = usuario.Endereco;
-        
+
         await usuarioRepository.Save(usuarioPersisted);
-        
+        validationResult.Data = usuarioPersisted;
         return validationResult;
     }
+
 }

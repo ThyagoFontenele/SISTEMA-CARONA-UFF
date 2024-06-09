@@ -15,9 +15,7 @@ namespace CaronaUFF.Domain.Services
                 return validationResult;
             }
 
-            validationResult.Data = veiculo;
             await veiculoRepository.Save(veiculo);
-
             return validationResult;
         }
 

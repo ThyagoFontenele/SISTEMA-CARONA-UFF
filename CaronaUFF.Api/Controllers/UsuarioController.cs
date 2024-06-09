@@ -40,7 +40,7 @@ public class UsuarioController(IUsuarioRepository usuarioRepository) : Controlle
             return NotFound();
         }
         
-        var validationResult = await new UsuarioRegistration(usuarioRepository).Register(usuario);
+        var validationResult = await new UsuarioRegistration(usuarioRepository).Update(usuario);
         
         if (!validationResult.IsValid)
         {

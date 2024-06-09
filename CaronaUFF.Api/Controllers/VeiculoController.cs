@@ -45,7 +45,7 @@ namespace CaronaUFF.Api.Controllers
 
         [HttpPut]
         [Authorize]
-        public async Task<IActionResult> Put(Veiculo veiculo)
+        public async Task<IActionResult> Update(Veiculo veiculo)
         {
             var veiculoPersisted = await veiculoRepository.GetById(veiculo.Id);
 
