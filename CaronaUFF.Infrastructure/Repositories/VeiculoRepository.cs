@@ -12,7 +12,7 @@ namespace CaronaUFF.Infrastructure.Repositories
 {
     public class VeiculoRepository : Repository<Veiculo> , IVeiculoRepository
     {
-        public async Task<Veiculo?> GetUser(Expression<Func<Veiculo, bool>> predicate) =>
+        public async Task<Veiculo?> GetVeiculo(Expression<Func<Veiculo, bool>> predicate) =>
     await Session.Query<Veiculo>()
         .FirstOrDefaultAsync(predicate);
     }

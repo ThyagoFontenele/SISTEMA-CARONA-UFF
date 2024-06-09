@@ -12,6 +12,6 @@ namespace CaronaUFF.Domain.Specifications.VeiculoSpecifications
     {
         public string Message => "Placa já cadastrada";
         public async Task<bool> IsSatisfiedBy(Veiculo veiculo) =>
-    await veiculoRepository.GetUser(u => u.Placa == veiculo.Placa) is null;
+    await veiculoRepository.GetVeiculo(v => v.Placa == veiculo.Placa && veiculo.Id != v.Id) is null;
     }
 }

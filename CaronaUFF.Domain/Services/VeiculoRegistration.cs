@@ -15,9 +15,27 @@ namespace CaronaUFF.Domain.Services
                 return validationResult;
             }
 
-            validationResult.Data = veiculo;
             await veiculoRepository.Save(veiculo);
+            return validationResult;
+        }
 
+        public async Task<ValidationResult<Veiculo>> Update(Veiculo veiculo)
+        {
+            var validationResult = await new VeiculoRegistrationValidation(veiculoRepository).Validate(veiculo);
+
+            if (!validationResult.IsValid)
+            {
+                return validationResult;
+            }
+            var veiculoPersisted = await veiculoRepository.GetById(veiculo.Id);
+            veiculoPersisted.Modelo = veiculo.Modelo;
+            veiculoPersisted.Placa = veiculo.Placa;
+            veiculoPersisted.Cor = veiculo.Cor;
+            veiculoPersisted.Ano = veiculo.Ano;
+            veiculoPersisted.Marca = veiculo.Marca;
+
+            validationResult.Data = veiculo;
+            await veiculoRepository.Save(veiculoPersisted);
             return validationResult;
         }
     }
