@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="styles.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 
 <body>
@@ -59,71 +60,18 @@
         <div class="d-flex m-5 bd-highlight">
             <h2 class="p-3 text-center">Veículos</h2>
         </div>
-        <form class="p-2 m-5">
-            <div>
-                <div class="row">
-                    <div class="form-group col-md-2">
-                        <label for="modelocarro">Modelo</label>
-                        <input type="text" class="form-control" id="modelocarro" name="modelocarro" value="Siena"
-                            disabled>
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label for="marcacarro">Marca</label>
-                        <input type="text" class="form-control" id="marcacarro" name="marcacarro" value="Fiat" disabled>
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label for="anocarro">Ano</label>
-                        <input type="text" class="form-control" id="anocarro" name="anocarro" value="2019" disabled>
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label for="placacarro">Placa</label>
-                        <input type="text" class="form-control" id="placacarro" name="placacarro" value="APP2024" disabled>
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label for="estadocarro">UF</label>
-                        <select id="estadocarro" name="estadocarro" class="form-control" disabled>
-                            <option selected>Escolher...</option>
-                            <option>AC</option>
-                            <option>AM</option>
-                            <option>RR</option>
-                            <option>PA</option>
-                            <option>RO</option>
-                            <option>AP</option>
-                            <option>TO</option>
-                            <option>MA</option>
-                            <option>PI</option>
-                            <option>CE</option>
-                            <option>RN</option>
-                            <option>PB</option>
-                            <option>PE</option>
-                            <option>AL</option>
-                            <option>SE</option>
-                            <option>BA</option>
-                            <option>MG</option>
-                            <option>ES</option>
-                            <option>RJ</option>
-                            <option>SP</option>
-                            <option>PR</option>
-                            <option>SC</option>
-                            <option>RS</option>
-                            <option>MS</option>
-                            <option>MT</option>
-                            <option>GO</option>
-                            <option>DF</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label for="forCidade">Cidade</label>
-                        <input type="text" class="form-control" id="cidade" name="cidade" value="Rio de Janeiro"
-                            disabled>
-                    </div>
-                </div>
+        <div class="justify-content-center">
+            <div class="d-flex m-5 bd-highlight">
+                <h3 class="p-3 text-center">Adicionar Novo Veículo</h3>
             </div>
-            <button type="submit" class="btn btn-primary">Editar</button>
-        </form>
-        <form class="p-2 m-5">
-            <button type="submit" class="btn btn-primary">Adicionar Veículo</button>
-        </form>
+            <user-vehicle-form></user-vehicle-form>
+        </div>
+        <div class="justify-content-center">
+            <div class="d-flex m-5 bd-highlight">
+                <h3 class="p-3 text-center">Editar Veículo</h3>
+            </div>
+            <user-vehicle-form></user-vehicle-form>
+        </div>
     </main>
 
     <footer class="text-center text-lg-start bg-body-tertiary" style="background-color: #016086;">
@@ -132,15 +80,10 @@
     </footer>
 
     <script src="../components/user-form.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
+    <script src="../components/user-vehicle-form.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 
 </html>
