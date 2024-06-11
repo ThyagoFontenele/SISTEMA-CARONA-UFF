@@ -8,5 +8,5 @@ public class UsuarioUniqueEmailSpecification(IUsuarioRepository usuarioRepositor
     public string Message => "Email já cadastrado";
 
     public async Task<bool> IsSatisfiedBy(Usuario usuario) =>
-        await usuarioRepository.GetUser(u => u.Email == usuario.Email) is null;
+        await usuarioRepository.GetUser(u => u.Id != usuario.Id && u.Email == usuario.Email) is null;
 }

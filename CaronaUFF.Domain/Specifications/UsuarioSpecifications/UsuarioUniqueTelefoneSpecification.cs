@@ -8,5 +8,5 @@ public class UsuarioUniqueTelefoneSpecification(IUsuarioRepository usuarioReposi
     public string Message => "Telefone já cadastrado";
 
     public async Task<bool> IsSatisfiedBy(Usuario usuario) =>
-        await usuarioRepository.GetUser(u => u.Telefone == usuario.Telefone) is null;
+        await usuarioRepository.GetUser(u => u.Id != usuario.Id && u.Telefone == usuario.Telefone) is null;
 }

@@ -66,7 +66,7 @@ public class FluentNhibernateHelper
                     .AssemblyOf<IEntity>(config)
                     .IgnoreBase<IEntity>()
                     .UseOverridesFromAssemblyOf<UsuarioMappingOverride>()
-                    .UseOverridesFromAssemblyOf<Veiculo>()
+                    .UseOverridesFromAssemblyOf<VeiculoMappingOverride>()
                     .Conventions.Add(new CustomForeignKeyConvention())
                 )
             )
