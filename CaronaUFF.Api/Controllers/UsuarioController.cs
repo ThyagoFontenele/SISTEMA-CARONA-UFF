@@ -1,4 +1,5 @@
 using System.Security.Claims;
+using CaronaUFF.Api.Service;
 using CaronaUFF.Domain.DTO;
 using CaronaUFF.Domain.Entities;
 using CaronaUFF.Domain.Repositories;
@@ -12,11 +13,6 @@ namespace CaronaUFF.Api.Controllers;
 [Route("api/[controller]")]
 public class UsuarioController(IUsuarioRepository usuarioRepository) : ControllerBase
 {
-    [HttpGet]
-    [Authorize]
-    public async Task<IList<Usuario>> Get() =>
-        (await usuarioRepository.GetAll()).ToList();
-
     [HttpGet("{id}")]
     [Authorize]
     public async Task<IActionResult> GetById(int id)
@@ -38,6 +34,11 @@ public class UsuarioController(IUsuarioRepository usuarioRepository) : Controlle
         if (await usuarioRepository.GetById(usuario.Id) is null)
         {
             return NotFound();
+        }
+        
+        if (usuario.Id != User.GetUserId())
+        {
+            return Unauthorized();
         }
         
         var validationResult = await new UsuarioRegistration(usuarioRepository).Update(usuario);

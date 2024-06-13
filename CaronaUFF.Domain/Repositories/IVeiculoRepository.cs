@@ -1,15 +1,10 @@
 ﻿using CaronaUFF.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CaronaUFF.Domain.Repositories
+namespace CaronaUFF.Domain.Repositories;
+
+public interface IVeiculoRepository : IRepository<Veiculo>
 {
-    public interface IVeiculoRepository : IRepository<Veiculo>
-    {
-        Task<Veiculo?> GetVeiculo(Expression<Func<Veiculo, bool>> predicate);
-    }
+    Task<Veiculo?> GetVeiculo(Expression<Func<Veiculo, bool>> predicate); 
+    Task<IList<Veiculo>> GetUserVeiculos(int userId);
 }

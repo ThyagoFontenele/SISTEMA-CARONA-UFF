@@ -3,7 +3,6 @@ using FluentNHibernate.Conventions.Instances;
 
 namespace CaronaUFF.Infrastructure.Mappings.Conventions;
 
-
 public class CustomForeignKeyConvention : IReferenceConvention, IHasManyConvention, IHasManyToManyConvention, IJoinedSubclassConvention
 {
     public void Apply(IManyToOneInstance instance) => instance.Column($"{instance.Property.Name}Id");
