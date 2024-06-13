@@ -24,11 +24,11 @@ class UserVehicleForm extends HTMLElement {
         <form class="p-2 m-5">
         <div>
             <div class="row">
-                <div class="form-group col-md-2">
+                <div class="form-group col-md-3">
                     <label for="modelocarro">Modelo</label>
                     <input type="text" class="form-control" id="modelocarro" name="modelocarro" placeholder ="Modelo">
                 </div>
-                <div class="form-group col-md-2">
+                <div class="form-group col-md-3">
                     <label for="marcacarro">Marca</label>
                     <input type="text" class="form-control" id="marcacarro" name="marcacarro" placeholder ="Marca">
                 </div>
@@ -41,41 +41,8 @@ class UserVehicleForm extends HTMLElement {
                     <input type="text" class="form-control" id="placacarro" name="placacarro" placeholder ="Placa">
                 </div>
                 <div class="form-group col-md-2">
-                    <label for="estadocarro">UF</label>
-                    <select id="estadocarro" name="estadocarro" class="form-control" placeholder ="UF">
-                        <option selected>Escolher...</option>
-                        <option>AC</option>
-                        <option>AM</option>
-                        <option>RR</option>
-                        <option>PA</option>
-                        <option>RO</option>
-                        <option>AP</option>
-                        <option>TO</option>
-                        <option>MA</option>
-                        <option>PI</option>
-                        <option>CE</option>
-                        <option>RN</option>
-                        <option>PB</option>
-                        <option>PE</option>
-                        <option>AL</option>
-                        <option>SE</option>
-                        <option>BA</option>
-                        <option>MG</option>
-                        <option>ES</option>
-                        <option>RJ</option>
-                        <option>SP</option>
-                        <option>PR</option>
-                        <option>SC</option>
-                        <option>RS</option>
-                        <option>MS</option>
-                        <option>MT</option>
-                        <option>GO</option>
-                        <option>DF</option>
-                    </select>
-                </div>
-                <div class="form-group col-md-2">
-                    <label for="forCidade">Cidade</label>
-                    <input type="text" class="form-control" id="cidade" name="cidade" placeholder ="Cidade">
+                    <label for="forCor">Cor</label>
+                    <input type="text" class="form-control" id="cor" name="cor" placeholder ="Cor">
                 </div>
             </div>
         </div>
