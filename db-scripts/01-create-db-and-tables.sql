@@ -40,8 +40,10 @@ CREATE TABLE Carona (
     Encerrada   BIT           NOT NULL CONSTRAINT Carona_Encerrada DEFAULT 0,
     Cancelada   BIT           NOT NULL CONSTRAINT Carona_Cancelada DEFAULT 0,
 	VeiculoId   INT           NOT NULL,
+    RetornoId   INT           NULL,
 	CONSTRAINT PK_Carona PRIMARY KEY (Id),
-	CONSTRAINT FK_Carona_Veiculo FOREIGN KEY (VeiculoId) REFERENCES Veiculo (Id)
+	CONSTRAINT FK_Carona_Veiculo FOREIGN KEY (VeiculoId) REFERENCES Veiculo (Id),
+    CONSTRAINT FK_Carona_Retorno FOREIGN KEY (RetornoId) REFERENCES Carona (Id)
 )
 GO
 CREATE TABLE CaronaPassageiros (

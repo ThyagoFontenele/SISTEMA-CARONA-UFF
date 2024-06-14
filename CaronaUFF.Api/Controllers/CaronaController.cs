@@ -27,7 +27,7 @@ namespace CaronaUFF.Api.Controllers
             {
                 return NotFound();
             }
-            return Ok(CaronaDTO.ToDTO(carona));
+            return Ok(carona);
         }
 
         [HttpPost]

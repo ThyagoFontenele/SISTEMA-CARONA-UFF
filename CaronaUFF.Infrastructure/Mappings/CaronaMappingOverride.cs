@@ -13,7 +13,7 @@ namespace CaronaUFF.Infrastructure.Mappings
     {
         public void Override(AutoMapping<Carona> mapping)
         {
-            mapping.HasMany(c => c.Passageiros);
+            mapping.HasManyToMany(c => c.Passageiros).Table("CaronaPassageiros");
             mapping.References(c => c.Veiculo);
             mapping.References(c => c.Retorno);
         }
