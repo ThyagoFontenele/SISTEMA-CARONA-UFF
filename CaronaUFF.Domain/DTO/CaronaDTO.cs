@@ -24,8 +24,8 @@ namespace CaronaUFF.Domain.DTO
                 Id = carona.Id,
                 DataHora = carona.DataHora,
                 Vagas = carona.Vagas,
-                LocalSaida = carona.LocalSaida,
-                LocalChegada = carona.LocalChegada,
+                LocalSaida = carona.Origem,
+                LocalChegada = carona.Destino,
                 Observacoes = carona.Observacoes,
                 Encerrada = carona.Encerrada,
                 Cancelada = carona.Cancelada

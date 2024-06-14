@@ -32,8 +32,8 @@ namespace CaronaUFF.Domain.Services
 
             if (caronaPersisted != null)
             {
-                caronaPersisted.LocalSaida = carona.LocalSaida;
-                caronaPersisted.LocalChegada = carona.LocalChegada;
+                caronaPersisted.Origem = carona.Origem;
+                caronaPersisted.Destino = carona.Destino;
                 caronaPersisted.Vagas = carona.Vagas;
                 caronaPersisted.Encerrada = carona.Encerrada;
                 caronaPersisted.Cancelada = carona.Cancelada;

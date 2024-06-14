@@ -11,8 +11,8 @@ namespace CaronaUFF.Domain.Entities
         public virtual int Id { get; set; }
         public virtual DateTime DataHora { get; set; }
         public virtual int Vagas { get; set; }
-        public virtual string LocalSaida { get; set; }
-        public virtual string LocalChegada { get; set; }
+        public virtual string Origem { get; set; }
+        public virtual string Destino { get; set; }
         public virtual string Observacoes { get; set; }
         public virtual bool Encerrada { get; set; }
         public virtual bool Cancelada { get; set; }
