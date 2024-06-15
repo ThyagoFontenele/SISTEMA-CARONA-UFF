@@ -5,3 +5,9 @@ VALUES ('Administrador UFF', 'adm@gmail.com', '$2a$11$YQKi28DDcDYyLqwVho/wqeZ/WU
 
 INSERT INTO Veiculo(Marca, Modelo, Cor, Placa, Ano, UsuarioId)
 VALUES ('Chevrolet', 'Camaro', 'Amarelo', '4D2FS4G', 2016,1);
+
+INSERT INTO Carona(Origem, Destino, DataHora, Vagas, Observacoes, VeiculoId, RetornoId)
+VALUES ('UFF', 'Casa', '2020-06-01 18:00:00', 3, NULL, 1, NULL);
+
+INSERT INTO CaronaPassageiros(CaronaId, UsuarioId)
+VALUES (1, 1);
