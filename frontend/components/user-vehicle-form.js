@@ -1,8 +1,8 @@
-class UserVehicleForm extends HTMLElement {
+class UserVehicleFormComponent extends HTMLElement {
     
-    /*vehicle;
+    vehicle;
     formElement;
-    editable;*/
+    editable;
 
     constructor() {
         super();
@@ -14,7 +14,7 @@ class UserVehicleForm extends HTMLElement {
         let submitButtonText = "Cadastrar";
 
         if (this.editable) {
-            //this.getVehicle();
+            this.getVehicle();
             submitButtonText = "Editar";
         }
 
@@ -23,35 +23,37 @@ class UserVehicleForm extends HTMLElement {
         element.innerHTML = `
         <form class="p-2 m-5">
         <div>
-            <div class="row">
+            <div class="d-flex gap-3 flex-wrap">
                 <div class="form-group col-md-3">
                     <label for="modelocarro">Modelo</label>
-                    <input type="text" class="form-control" id="modelocarro" name="modelocarro" placeholder ="Modelo">
+                    <input type="text" class="form-control" id="modelocarro" name="modelocarro" placeholder="Modelo">
                 </div>
                 <div class="form-group col-md-3">
                     <label for="marcacarro">Marca</label>
-                    <input type="text" class="form-control" id="marcacarro" name="marcacarro" placeholder ="Marca">
+                    <input type="text" class="form-control" id="marcacarro" name="marcacarro" placeholder="Marca">
                 </div>
-                <div class="form-group col-md-2">
+                <div class="form-group col-md-1">
                     <label for="anocarro">Ano</label>
-                    <input type="text" class="form-control" id="anocarro" name="anocarro" placeholder ="Ano">
+                    <input type="text" class="form-control" id="anocarro" name="anocarro" placeholder="Ano">
                 </div>
                 <div class="form-group col-md-2">
                     <label for="placacarro">Placa</label>
-                    <input type="text" class="form-control" id="placacarro" name="placacarro" placeholder ="Placa">
+                    <input type="text" class="form-control" id="placacarro" name="placacarro" placeholder="Placa">
                 </div>
                 <div class="form-group col-md-2">
                     <label for="forCor">Cor</label>
                     <input type="text" class="form-control" id="cor" name="cor" placeholder ="Cor">
                 </div>
+                <div class="d-flex gap-2 justify-content-end align-items-end">
+                    <button class="btn btn-primary" type="submit">${submitButtonText}</button>
+                    ${this.editable ? "<button class='btn btn-danger'>Excluir</button>" : ""}
+                </div>
             </div>
         </div>
-        <br>
-        <button type="submit" class="btn btn-primary">${submitButtonText}</button>
     </form>
         `;
         
-        /*this.formElement = element.querySelector('form');
+        this.formElement = element.querySelector('form');
         this.formElement.addEventListener("submit", e => {
             e.preventDefault()
             const object = {}
@@ -63,7 +65,7 @@ class UserVehicleForm extends HTMLElement {
             this.formElement.querySelectorAll('.form-control').forEach(i => object[i.name] = i.value)
             var json = JSON.stringify(object)
             this.request(json);
-        })        */
+        })
 
         this.setBootstrapLink();
         this.shadowRoot.appendChild(element);
@@ -77,8 +79,6 @@ class UserVehicleForm extends HTMLElement {
         link.setAttribute('crossorigin', 'anonymous');
         this.shadowRoot.append(link);
     }
-
-    /*
 
     request(json) {
         let baseUrl = 'http://localhost:5125/api/Veiculo';
@@ -99,10 +99,6 @@ class UserVehicleForm extends HTMLElement {
             headers: headers
         }).then(res => {
             if (res.ok) {
-                alert('Sucesso!');
-                if (method === 'POST') {
-                    window.location.href = '/login/login.html';  
-                }
                 return;
             }
             
@@ -116,7 +112,8 @@ class UserVehicleForm extends HTMLElement {
     }
 
     getVehicle() {
-        const id = localStorage.getItem('id')
+        const id = parseInt(this.getAttribute('id'));
+
         const token = localStorage.getItem('token')
         fetch(`http://localhost:5125/api/Veiculo/${id}`, {
             method: 'GET',
@@ -156,8 +153,7 @@ class UserVehicleForm extends HTMLElement {
 
             i.value = this.user[i.name]
         })
-    } */
-
+    }
 }
 
-customElements.define('user-vehicle-form', UserVehicleForm);
+customElements.define('app-user-vehicle-form', UserVehicleFormComponent);

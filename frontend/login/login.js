@@ -6,15 +6,14 @@ function login(json) {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*'
             }
-        }).then(res => {
+        }).then(async (res) => {
             if (res.ok) {
-                alert('Logado com sucesso');
-
-                res.json().then(r => {
+                await res.json().then(r => {
                     localStorage.setItem('id', r.user.id);
                     localStorage.setItem('token', r.token)
                 })
                 
+                window.location.href = '../user-home/user-home.html';
                 return;
             }
             
