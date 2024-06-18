@@ -3,13 +3,12 @@ using CaronaUFF.Domain.Repositories;
 using CaronaUFF.Domain.Services.Validation;
 using CaronaUFF.Domain.Specifications.VeiculoSpecifications;
 
-namespace CaronaUFF.Domain.Services
+namespace CaronaUFF.Domain.Services;
+
+public class VeiculoRegistrationValidation(IVeiculoRepository veiculoRepository) : ValidationService<Veiculo>
 {
-    public class VeiculoRegistrationValidation(IVeiculoRepository veiculoRepository) : ValidationService<Veiculo>
+    protected override void SetValidations()
     {
-        protected override void SetValidations()
-        {
-            AddSpecification(new VeiculoUniquePlacaSpecification(veiculoRepository));
-        }
+        AddSpecification(new VeiculoUniquePlacaSpecification(veiculoRepository));
     }
 }

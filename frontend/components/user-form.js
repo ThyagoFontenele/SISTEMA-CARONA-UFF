@@ -1,4 +1,4 @@
-class UserForm extends HTMLElement {
+class UserFormComponent extends HTMLElement {
     
     user;
     formElement;
@@ -180,4 +180,4 @@ class UserForm extends HTMLElement {
     }
 }
 
-customElements.define("user-form", UserForm);
+customElements.define("app-user-form", UserFormComponent);
