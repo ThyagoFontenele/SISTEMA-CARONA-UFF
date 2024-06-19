@@ -127,7 +127,6 @@ function editVehicle(vehicle) {
         const tr = trs[i];
         if (tr.id == vehicle.id) {
             const datas = tr.getElementsByTagName('td')
-            console.log(datas)
             datas[0].innerText = vehicle.modelo;
             datas[1].innerText = vehicle.marca;
             datas[2].innerText = vehicle.ano;
