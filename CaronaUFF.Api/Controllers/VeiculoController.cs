@@ -13,8 +13,8 @@ public class VeiculoController(IVeiculoRepository veiculoRepository) : Controlle
 {
     [HttpGet]
     [Authorize]
-    public async Task<IList<Veiculo>> Get() =>
-        await veiculoRepository.GetUserVeiculos(User.GetUserId());
+    public async Task<IEnumerable<VeiculoDTO>> Get() =>
+        (await veiculoRepository.GetUserVeiculos(User.GetUserId())).Select(VeiculoDTO.ToDTO);
 
     [HttpGet("{id}")]
     [Authorize]
@@ -44,7 +44,7 @@ public class VeiculoController(IVeiculoRepository veiculoRepository) : Controlle
             return Conflict(validationResult.Errors);
         }
 
-        return Ok(VeiculoDTO.ToDTO(veiculo));
+        return Ok(VeiculoDTO.ToDTO(validationResult.Data!));
     }
 
     [HttpPut]
@@ -72,5 +72,25 @@ public class VeiculoController(IVeiculoRepository veiculoRepository) : Controlle
         }
 
         return Ok(VeiculoDTO.ToDTO(validationResult.Data!));
+    }
+    
+    [HttpDelete("{id}")]
+    [Authorize]
+    public async Task<IActionResult> Delete(int id)
+    {
+        var veiculo = await veiculoRepository.GetById(id);
+
+        if (veiculo is null)
+        {
+            return NotFound();
+        }
+
+        if (veiculo.Usuario.Id != User.GetUserId())
+        {
+            return Unauthorized();
+        }
+
+        await veiculoRepository.Delete(veiculo);
+        return Ok();
     }
 }

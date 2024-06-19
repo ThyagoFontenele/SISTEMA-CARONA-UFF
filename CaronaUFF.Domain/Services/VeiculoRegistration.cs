@@ -16,6 +16,7 @@ public class VeiculoRegistration(IVeiculoRepository veiculoRepository)
         }
 
         await veiculoRepository.Save(veiculo);
+        validationResult.Data = await veiculoRepository.GetVeiculo(v => v.Placa == veiculo.Placa);
         return validationResult;
     }
 
