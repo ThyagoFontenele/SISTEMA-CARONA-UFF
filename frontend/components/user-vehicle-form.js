@@ -105,8 +105,6 @@ class UserVehicleFormComponent extends HTMLElement {
             if (res.status === 409) {
                 return res.text().then(text => { throw new Error(text)})
             }
-
-            alert('Erro!');
             
         }).catch((e) => alert(e))
     }
@@ -134,8 +132,6 @@ class UserVehicleFormComponent extends HTMLElement {
             if (res.status === 409) {
                 return res.text().then(text => { throw new Error(text)})
             }
-
-            alert('Erro!');
             
         }).catch((e) => alert(e))
     }

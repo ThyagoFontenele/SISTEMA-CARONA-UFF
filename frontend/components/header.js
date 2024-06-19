@@ -2,7 +2,7 @@ class HeaderComponent extends HTMLElement {
 
     loggedButtons = `
 <span class="navbar-text">
-    <a class="navbar-brand" href="../user-home/user-home-profile.html">
+    <a class="navbar-brand" href="../user-profile/user-profile.html">
         <font color="white">Perfil</font>
     </a>
 </span>
