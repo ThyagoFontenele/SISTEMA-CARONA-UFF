@@ -151,6 +151,7 @@ class UserFormComponent extends HTMLElement {
                 res.json().then(res => {
                     this.user = res
                     this.setFormValues()
+                    loaded()
                 })
                 return;
             }

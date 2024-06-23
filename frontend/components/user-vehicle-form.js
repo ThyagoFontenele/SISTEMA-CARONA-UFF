@@ -3,17 +3,19 @@ class UserVehicleFormComponent extends HTMLElement {
     vehicle;
     formElement;
     editable;
+    id;
 
-    constructor() {
+    constructor(id) {
         super();
 
         this.attachShadow({ mode: 'open' });
 
-        this.editable = this.hasAttribute('edit') ?? this.getAttribute('edit')
+        this.editable = this.hasAttribute('id') || id;
 
         let submitButtonText = "Cadastrar";
-
+        
         if (this.editable) {
+            this.id = id ?? this.getAttribute('id')
             this.getVehicle();
             submitButtonText = "Editar";
         }
@@ -21,32 +23,32 @@ class UserVehicleFormComponent extends HTMLElement {
         const element = document.createElement("div");
 
         element.innerHTML = `
-        <form class="p-2 m-5">
+    <form class="m-5">
+        <h4>${submitButtonText} Veículo</h4>
         <div>
             <div class="d-flex gap-3 flex-wrap">
                 <div class="form-group col-md-3">
-                    <label for="modelocarro">Modelo</label>
-                    <input type="text" class="form-control" id="modelocarro" name="modelocarro" placeholder="Modelo">
+                    <label for="modelo">Modelo</label>
+                    <input required type="text" class="form-control" id="modelo" name="modelo" placeholder="Modelo">
                 </div>
                 <div class="form-group col-md-3">
-                    <label for="marcacarro">Marca</label>
-                    <input type="text" class="form-control" id="marcacarro" name="marcacarro" placeholder="Marca">
+                    <label for="marca">Marca</label>
+                    <input required type="text" class="form-control" id="marca" name="marca" placeholder="Marca">
                 </div>
                 <div class="form-group col-md-1">
-                    <label for="anocarro">Ano</label>
-                    <input type="text" class="form-control" id="anocarro" name="anocarro" placeholder="Ano">
+                    <label for="ano">Ano</label>
+                    <input required type="text" class="form-control" id="ano" name="ano" placeholder="Ano">
                 </div>
                 <div class="form-group col-md-2">
-                    <label for="placacarro">Placa</label>
-                    <input type="text" class="form-control" id="placacarro" name="placacarro" placeholder="Placa">
+                    <label for="placa">Placa</label>
+                    <input required type="text" class="form-control" id="placa" name="placa" placeholder="Placa">
                 </div>
                 <div class="form-group col-md-2">
                     <label for="forCor">Cor</label>
-                    <input type="text" class="form-control" id="cor" name="cor" placeholder ="Cor">
+                    <input required type="text" class="form-control" id="cor" name="cor" placeholder ="Cor">
                 </div>
                 <div class="d-flex gap-2 justify-content-end align-items-end">
                     <button class="btn btn-primary" type="submit">${submitButtonText}</button>
-                    ${this.editable ? "<button class='btn btn-danger'>Excluir</button>" : ""}
                 </div>
             </div>
         </div>
@@ -59,7 +61,7 @@ class UserVehicleFormComponent extends HTMLElement {
             const object = {}
 
             if (this.editable) {
-                object['id'] = this.user.id;
+                object['id'] = this.vehicle.id;
             }
 
             this.formElement.querySelectorAll('.form-control').forEach(i => object[i.name] = i.value)
@@ -83,39 +85,53 @@ class UserVehicleFormComponent extends HTMLElement {
     request(json) {
         let baseUrl = 'http://localhost:5125/api/Veiculo';
         let method = 'POST';
+
         const headers = {
             'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*'
+            'Access-Control-Allow-Origin': '*',
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
 
         if (this.editable) {
             method = 'PUT';
-            headers['Authorization'] = `Bearer ${localStorage.getItem('token')}`
         }
 
         fetch(baseUrl, {
             method: method,
             body: json,
             headers: headers
-        }).then(res => {
+        }).then(async res => {
             if (res.ok) {
+                
+                await res.json().then(res => {
+                    if (this.editable) {
+                        editVehicle(res)
+                        editVehicleComponentToggle(res.id)
+                        return;
+                    }
+
+                    addVehicle(res)
+                });
+
+                this.formElement.querySelectorAll('.form-control').forEach(i => i.value = '')
                 return;
             }
             
-            if (res.status === 409) {
-                return res.text().then(text => { throw new Error(text)})
+            if (res.status === 400) {
+                alert('Dados incorretos')
+                return;
             }
 
-            alert('Erro!');
+            if (res.status === 409) {
+                return res.text().then(text => alert(text))
+            }
             
         }).catch((e) => alert(e))
     }
 
     getVehicle() {
-        const id = parseInt(this.getAttribute('id'));
-
         const token = localStorage.getItem('token')
-        fetch(`http://localhost:5125/api/Veiculo/${id}`, {
+        fetch(`http://localhost:5125/api/Veiculo/${this.id}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -134,25 +150,11 @@ class UserVehicleFormComponent extends HTMLElement {
             if (res.status === 409) {
                 return res.text().then(text => { throw new Error(text)})
             }
-
-            alert('Erro!');
-            
         }).catch((e) => alert(e))
     }
 
     setFormValues() {
-        this.formElement.querySelectorAll('.form-control').forEach(i => {
-            if (i.name === 'senha') {
-                return;
-            }
-
-            if (i.name === 'dataNascimento') {
-                i.value = new Date(this.user[i.name]).toISOString().substring(0,10);
-                return;
-            }
-
-            i.value = this.user[i.name]
-        })
+        this.formElement.querySelectorAll('.form-control').forEach(i => i.value = this.vehicle[i.name])
     }
 }
 

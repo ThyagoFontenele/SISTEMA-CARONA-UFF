@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="styles.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Font Awesome CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        .star-rating .fa {
+            font-size: 1.5rem;
+            color: black;
+            cursor: pointer;
+        }
+
+        .star-rating .off {
+            color: #e3e3e3;
+        }
+
+        .star-rating .on {
+            color: #fed712;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(0, 0, 0, 0.1);
+            border-top-color: #007bff;
+            border-radius: 50%;
+            animation: spin 1s infinite linear;
+            margin: auto;
+            margin-top: 20px;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <app-header></app-header>
+    <h1 class="text-center m-5">Perfil</h1>
+    <div class="spinner mt-5 mb-5"></div>
+    <main class="d-none">
+        <div class="d-flex ml-5 bd-highlight">
+            <h2 class="text-center">Reputação</h2>
+        </div>
+        <div class="d-flex m-5 bd-highlight">
+            <div class="star-rating">
+                <i class="fa fa-star on" data-value="1"></i>
+                <i class="fa fa-star on" data-value="2"></i>
+                <i class="fa fa-star on" data-value="3"></i>
+                <i class="fa fa-star off" data-value="4"></i>
+                <i class="fa fa-star off" data-value="5"></i>
+            </div>
+        </div>
+        <div class="d-flex ml-5 bd-highlight">
+            <h2 class="text-center">Dados</h2>
+        </div>
+        <app-user-form edit="true"></app-user-form>
+        <div class="d-flex m-5 bd-highlight">
+            <h2 class="text-center">Veículos</h2>
+        </div>
+        <div class="ml-5">
+            <div id="no-vehicles" class="alert alert-info">
+                Nenhum veículo registrado.
+            </div>
+            <table id="vehicles-table" class="table table-bordered table-striped d-none">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Modelo</th>
+                        <th>Marca</th>
+                        <th>Ano</th>
+                        <th>Placa</th>
+                        <th>Cor</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <div class="edit-vehicle">
+            </div>
+        </div>
+        <app-user-vehicle-form></app-user-vehicle-form>
+    </main>
+
+    <footer class="text-center text-lg-start bg-body-tertiary" style="background-color: #016086;">
+        <p>&copy; <font color="white">2024 APP Caronas UFF. Todos os direitos reservados.</font>
+        </p>
+    </footer>
+
+    <script src="./user-profile.js"></script>
+    <script src="../components/user-form.js"></script>
+    <script src="../components/user-vehicle-form.js"></script>
+    <script src="../components/header.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -4,7 +4,7 @@ namespace CaronaUFF.Domain.DTO
 {
     public class VeiculoDTO
     {
-        public required int Id { get; set; }
+        public int Id { get; set; }
         public required string Placa { get; set; }
         public required string Modelo { get; set; }
         public required string Cor { get; set; }
